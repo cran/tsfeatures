@@ -69,7 +69,7 @@ max_level_shift <- function(x, width = ifelse(frequency(x) > 1,
                               frequency(x), 10
                             )) {
   suppressWarnings(rollmean <- try(RcppRoll::roll_mean(x, width, na.rm = TRUE), silent = TRUE))
-  if (class(rollmean) == "try-error") {
+  if ("try-error" %in% class(rollmean)) {
     maxmeans <- NA_real_
     maxidx <- NA_real_
   } else {
@@ -97,7 +97,7 @@ max_var_shift <- function(x, width = ifelse(frequency(x) > 1,
                             frequency(x), 10
                           )) {
   suppressWarnings(rollvar <- try(RcppRoll::roll_var(x, width, na.rm = TRUE), silent = TRUE))
-  if (class(rollvar) == "try-error") {
+  if ("try-error" %in% class(rollvar)) {
     maxvar <- NA_real_
     maxidx <- NA_real_
   } else {
@@ -187,9 +187,9 @@ crossing_points <- function(x) {
   return(c(crossing_points = sum(cross, na.rm = TRUE)))
 }
 
-#' Number of flat spots
+#' Longest flat spot
 #'
-#' Number of flat spots in a time series
+#' "Flat spots” are computed by dividing the sample space of a time series into ten equal-sized intervals, and computing the maximum run length within any single interval.
 #' @param x a univariate time series
 #' @return A numeric value.
 #' @author Earo Wang and Rob J Hyndman
@@ -199,7 +199,7 @@ flat_spots <- function(x) {
   cutx <- try(cut(x, breaks = 10, include.lowest = TRUE, labels = FALSE),
     silent = TRUE
   )
-  if (class(cutx) == "try-error") {
+  if ("try-error" %in% class(cutx)) {
     fspots <- NA
   } else {
     rlex <- rle(cutx)
@@ -247,9 +247,9 @@ hurst <- function(x) {
 
 #' Unit Root Test Statistics
 #'
-#' \code{unitroot_kpss} computes the statistic for the Kwiatkowski et al. unit root test 
+#' \code{unitroot_kpss} computes the statistic for the Kwiatkowski et al. unit root test
 #' using the default settings for the \code{\link[urca]{ur.kpss}} function.
-#' \code{unitroot_pp} computes the statistic for the Phillips-Perron unit root test 
+#' \code{unitroot_pp} computes the statistic for the Phillips-Perron unit root test
 #' using the default settings for the \code{\link[urca]{ur.pp}} function.
 #' @param x a univariate time series.
 #' @param ... Other arguments are passed to the \code{\link[urca]{ur.kpss}} or

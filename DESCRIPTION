@@ -1,6 +1,6 @@
 Package: tsfeatures
 Title: Time Series Feature Extraction
-Version: 1.0.2
+Version: 1.1
 Authors@R: c(
     person("Rob", "Hyndman", email = "Rob.Hyndman@monash.edu", role = c("aut","cre"), comment = c(ORCID = "0000-0002-2140-5352")),
     person("Yanfei", "Kang", role = "aut", comment = c(ORCID = "0000-0001-8769-6650")),
@@ -21,15 +21,14 @@ Imports: fracdiff, forecast (>= 8.3), purrr, RcppRoll (>= 0.2.2),
 Suggests: testthat, knitr, rmarkdown, ggplot2, tidyr, dplyr, Mcomp,
         GGally
 License: GPL-3
-LazyData: true
 ByteCompile: true
 URL: https://pkg.robjhyndman.com/tsfeatures/
 BugReports: https://github.com/robjhyndman/tsfeatures/issues/
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-06-07 00:11:43 UTC; robjhyndman
+Packaged: 2022-10-08 22:48:04 UTC; hyndman
 Author: Rob Hyndman [aut, cre] (<https://orcid.org/0000-0002-2140-5352>),
   Yanfei Kang [aut] (<https://orcid.org/0000-0001-8769-6650>),
   Pablo Montero-Manso [aut],
@@ -44,4 +43,4 @@ Author: Rob Hyndman [aut, cre] (<https://orcid.org/0000-0002-2140-5352>),
   J R Moorman [ctb]
 Maintainer: Rob Hyndman <Rob.Hyndman@monash.edu>
 Repository: CRAN
-Date/Publication: 2020-06-07 16:10:02 UTC
+Date/Publication: 2022-10-08 23:10:02 UTC

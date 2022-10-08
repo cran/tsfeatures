@@ -82,7 +82,7 @@ pacf_features <- function(x) {
     pacfx <- NA
   }
 
-  # Sum of first 5 PACs squared 
+  # Sum of first 5 PACs squared
   if(length(x) > 5) {
     pacf_5 <- sum((pacfx[seq(5L)])^2)
   } else {
@@ -155,3 +155,15 @@ hw_parameters <- function(x) {
 #   Res<-resid(linear_mod)
 #   return(stats::acf(Res,lag.max=1L,plot=FALSE)$acf[-1])
 # }
+
+#' Proportion of zeros
+#'
+#' Computes proportion of zeros in a time series
+#' @param x a univariate time series
+#' @param tol tolerance level. Absolute values below this are considered zeros.
+#' @return A numeric value.
+#' @author Thiyanga Talagala
+#' @export
+zero_proportion <- function(x, tol = 1e-8) {
+  mean(abs(x) < tol, na.rm=TRUE)
+}
